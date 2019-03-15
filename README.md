@@ -23,6 +23,12 @@ cd workspace-b
 yarn build:watch # Installs, builds, and automatically re-builds on any changes to this or dependent packages
 ```
 
+To also run an app that auto-restarts with changes, in another terminal:
+
+```
+yarn start:watch # Runs nodemon and listens to all changes in this or dependent packages
+```
+
 # Adding a local package reference
 
 Say you want to have workspace-b reference workspace-c

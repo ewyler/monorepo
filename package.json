@@ -14,6 +14,7 @@
     "clean": "rm -rf dist node_modules **/dist **/node_modules"
   },
   "devDependencies": {
+    "nodemon": "^1.18.10",
     "typescript": "^3.3.3333"
   }
 }
