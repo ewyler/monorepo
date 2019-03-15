@@ -25,3 +25,9 @@ And you're done - building and running should work as they already do
 # Monorepo testing
 
 `yarn clean` at the root to rip out `node_modules` and `dist` directories to start fresh
+
+# Open questions
+
+- Lambdas should package the minimal amount - can serverless be configured to follow symlinks when packaging? Might need
+  some sort of smarter bundler if not
+- Similar case for services - no need to push all code in the monorepo if we don't need to
