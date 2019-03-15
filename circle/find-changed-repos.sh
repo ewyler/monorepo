@@ -1,4 +1,8 @@
-DEPLOYABLE_PATHS=( workspace-a workspace-b workspace-c )
+DEPLOYABLE_PATHS=(
+  workspace-a
+  workspace-b
+  workspace-c
+)
 
 # Relevant paths to deploy
 to_deploy=()
