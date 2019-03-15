@@ -1,4 +1,12 @@
 {
-    "private": true,
-    "workspaces": ["workspace-a", "workspace-b"]
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "workspace-a",
+      "workspace-b"
+    ],
+    "nohoist": [
+      "*"
+    ]
   }
+}
