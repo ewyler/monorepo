@@ -1,9 +1,9 @@
-import { aThing, Test } from "workspace-a";
+import { aThing, Test } from 'workspace-a';
 
 const poop: Test = {
-  num: "jklfd"
+  num: 'jklfd',
 };
 
 console.log(poop);
 
-console.log(aThing, "in b");
+console.log(aThing, 'in b');

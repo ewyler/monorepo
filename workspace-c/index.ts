@@ -1,1 +1,1 @@
-export const thingFromC = "c";
+export const thingFromC = 'c';
