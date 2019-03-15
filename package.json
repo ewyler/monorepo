@@ -12,5 +12,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist node_modules **/dist **/node_modules"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
   }
 }
