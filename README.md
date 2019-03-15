@@ -5,6 +5,7 @@ Monorepo
 - No need for explicit version management (all packages always use the latest)
 - Simple, single command dependency installation and builds
 - Still properly model things as separate packages so things could be broken out and versioned if desired
+- Able to share dependencies (e.g. typescript) across all packages so everything is on the same version
 
 # Do stuff
 
