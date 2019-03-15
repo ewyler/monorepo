@@ -1,6 +1,6 @@
 {
   "name": "workspace-b",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "yarn install && tsc --build",
@@ -9,7 +9,7 @@
     "start:watch": "nodemon"
   },
   "dependencies": {
-    "workspace-a": "1.0.0"
+    "workspace-a": "*"
   },
   "devDependencies": {}
 }
