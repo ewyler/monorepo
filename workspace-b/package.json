@@ -4,8 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "yarn install && tsc --build",
-    "start": "yarn install && ts-node index.ts",
-    "start-native": "yarn install && tsc --build && node dist/index.js"
+    "start": "yarn build && node dist/index.js"
   },
   "dependencies": {
     "workspace-a": "1.0.0"
