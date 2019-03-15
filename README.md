@@ -46,9 +46,9 @@ And you're done - building and running should work as they already do
 
 - Lambdas should package the minimal amount - can serverless be configured to follow symlinks when packaging? Might need
   some sort of smarter bundler if not
-  - Should be pretty trivial to solve with things like `DIR=`readlink
-    workspace-a`&& rm workspace-a && cp -R $DIR workspace-a` to simply copy the directory contents prior to deploying.
-    Any later `yarn install`s fix any oddities and reset to symlinks.
+  - Should be pretty trivial to solve with things like
+    `` DIR=`readlink workspace-a\`&& rm workspace-a && cp -R \$DIR workspace-a `` to simply copy the directory contents
+    prior to deploying. Any later`yarn install`s fix any oddities and reset to symlinks.
 - Similar case for services - no need to push all code in the monorepo if we don't need to
 - Automatic deployments - changing a dependency won't automatically deploy all services that use it if those services
   themselves never changed. Probably a rare case that this occurs. I don't think auto-deploying all users of a given
