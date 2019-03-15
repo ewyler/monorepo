@@ -1,5 +1,9 @@
 {
-  "experimentalDecorators": true,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "composite": true,
+    "declaration": true
+  },
   "references": [
     { "path": "./workspace-a" },
     { "path": "./workspace-b" },
