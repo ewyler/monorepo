@@ -1,0 +1,3 @@
+{
+  "references": [{ "path": "./workspace-a" }, { "path": "./workspace-b" }]
+}
