@@ -4,6 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "yarn install && tsc --build",
+    "build:watch": "yarn install && tsc --build --watch",
     "start": "yarn build && node dist/index.js"
   },
   "dependencies": {

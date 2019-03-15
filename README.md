@@ -9,9 +9,18 @@ Monorepo
 
 # Do stuff
 
+## Run the app
+
 ```
 cd workspace-b
 yarn start # Installs, builds, and runs
+```
+
+## Compile and watch across all relevant packages
+
+```
+cd workspace-b
+yarn build:watch # Installs, builds, and automatically re-builds on any changes to this or dependent packages
 ```
 
 # Adding a local package reference
