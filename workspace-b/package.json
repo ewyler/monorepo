@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "start:local": "yarn install && tsc --build"
+    "build": "yarn install && tsc --build",
+    "start": "yarn install && ts-node index.ts"
   },
   "dependencies": {
-    "cross-env": "5.0.5",
     "workspace-a": "1.0.0"
   }
 }

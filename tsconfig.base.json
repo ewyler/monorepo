@@ -1,3 +1,8 @@
 {
-  "experimentalDecorators": true
+  "experimentalDecorators": true,
+  "references": [
+    { "path": "./workspace-a" },
+    { "path": "./workspace-b" },
+    { "path": "./workspace-c" }
+  ]
 }

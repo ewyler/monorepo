@@ -9,5 +9,8 @@
     "nohoist": [
       "**"
     ]
+  },
+  "scripts": {
+    "clean": "rm -rf dist node_modules **/dist **/node_modules"
   }
 }
