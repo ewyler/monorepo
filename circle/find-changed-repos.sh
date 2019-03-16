@@ -1,3 +1,5 @@
+# For another example - https://gist.github.com/naesheim/18d0c0a58ee61f4674353a2f4cf71475
+
 DEPLOYABLE_PATHS=(
   workspace-a
   workspace-b
