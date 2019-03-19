@@ -16,6 +16,8 @@ jobs:
             - repo-source-{{ .Branch }}-
             - repo-source-
       - checkout
+      - run: echo `ls`
+      - run: echo `pwd`
       - save_cache:
           key: repo-source-{{ .Branch }}-{{ .Revision }}
           paths:
