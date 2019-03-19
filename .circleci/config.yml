@@ -34,8 +34,22 @@ jobs:
       - *fast_checkout
       - run: env
       - run: deploy/maybe-build.sh workspace-a
-      - run: echo `pwd`
-      - run: echo `ls .git`
+
+  build_workspace_b:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - *fast_checkout
+      - run: env
+      - run: deploy/maybe-build.sh workspace-b
+
+  build_workspace_c:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - *fast_checkout
+      - run: env
+      - run: deploy/maybe-build.sh workspace-c
 
 workflows:
   version: 2
@@ -43,5 +57,11 @@ workflows:
     jobs:
       - persist_checkout
       - build_workspace_a:
+          requires:
+            - persist_checkout
+      - build_workspace_b:
+          requires:
+            - persist_checkout
+      - build_workspace_c:
           requires:
             - persist_checkout
