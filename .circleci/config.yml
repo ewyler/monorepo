@@ -8,7 +8,7 @@ references:
 jobs:
   persist_checkout:
     docker:
-      - image: node:10-alpine
+      - image: circleci/node:10
     steps:
       - restore_cache:
           keys:
@@ -16,8 +16,6 @@ jobs:
             - repo-source-{{ .Branch }}-
             - repo-source-
       - checkout
-      - run: echo `ls`
-      - run: echo `pwd`
       - save_cache:
           key: repo-source-{{ .Branch }}-{{ .Revision }}
           paths:
@@ -26,11 +24,11 @@ jobs:
       - persist_to_workspace:
           root: /root
           paths:
-            - monorepo
+            - project
 
   build:
     docker:
-      - image: node:10-alpine
+      - image: circleci/node:10
     steps:
       - *fast-checkout
       - echo `ls .git`
