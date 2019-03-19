@@ -27,6 +27,7 @@ if [ "$COMMITS_IN_DIR" -gt "0" ]; then
   echo "Changes detected; building $DIRECTORY_TO_BUILD"
   cd $DIRECTORY_TO_BUILD
   yarn build
+  # Also test for now, but might be better as its own job
   yarn test
 else
   echo "No changes detected in $DIRECTORY_TO_BUILD; skipping build"

@@ -31,21 +31,21 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: deploy/maybe-build.sh workspace-a
+      - run: deploy/maybe-build-and-test.sh workspace-a
 
   workspace_b_build:
     docker:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: deploy/maybe-build.sh workspace-b
+      - run: deploy/maybe-build-and-test.sh workspace-b
 
   workspace_c_build:
     docker:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: deploy/maybe-build.sh workspace-c
+      - run: deploy/maybe-build-and-test.sh workspace-c
 
 workflows:
   version: 2
