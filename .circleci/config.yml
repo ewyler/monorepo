@@ -29,4 +29,4 @@ workflows:
       - persisted_checkout
       - build:
           requires:
-            - persist_checkout
+            - persisted_checkout
