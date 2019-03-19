@@ -2,7 +2,7 @@ set -o xtrace
 
 DIRECTORY_TO_BUILD=$1
 
-MASTER_HASH=`git rev-parse master`
+MASTER_HASH=`git rev-parse origin/master`
 HEAD_HASH=`git rev-parse HEAD`
 
 if [ "$MASTER_HASH" == "$HEAD_HASH" ]; then
