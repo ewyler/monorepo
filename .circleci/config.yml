@@ -3,7 +3,7 @@ version: 2
 references:
   fast-checkout: &fast-checkout
     attach_workspace:
-      at: project
+      at: '.'
 
 jobs:
   persist_checkout:
@@ -22,7 +22,7 @@ jobs:
             - '.git'
       - run: echo `ls`
       - persist_to_workspace:
-          root: project
+          root: '.'
           paths:
             - '.'
 
