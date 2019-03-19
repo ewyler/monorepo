@@ -1,7 +1,7 @@
 version: 2
 
 references:
-  fast-checkout: &fast-checkout
+  fast_checkout: &fast_checkout
     attach_workspace:
       at: '.'
 
@@ -27,20 +27,20 @@ jobs:
           paths:
             - '.'
 
-  build:
+  build_workspace_a:
     docker:
       - image: circleci/node:10
     steps:
-      - *fast-checkout
-      - run: echo `ls`
+      - *fast_checkout
+      - run: `deploy/maybe-build.sh /workspace-a`
       - run: echo `pwd`
       - run: echo `ls .git`
 
 workflows:
   version: 2
-  build-test-deploy:
+  build_test_deploy:
     jobs:
       - persist_checkout
-      - build:
+      - build_workspace_a:
           requires:
             - persist_checkout
