@@ -31,7 +31,9 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast-checkout
-      - echo `ls .git`
+      - run: echo `ls`
+      - run: echo `pwd`
+      - run: echo `ls .git`
 
 workflows:
   version: 2
