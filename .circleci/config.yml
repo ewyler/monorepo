@@ -31,7 +31,6 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: env
       - run: deploy/maybe-build.sh workspace-a
 
   workspace_b_build:
@@ -39,7 +38,6 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: env
       - run: deploy/maybe-build.sh workspace-b
 
   workspace_c_build:
@@ -47,7 +45,6 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: env
       - run: deploy/maybe-build.sh workspace-c
 
 workflows:
