@@ -2,15 +2,16 @@ set -o xtrace
 
 DIRECTORY_TO_BUILD=$1
 
-MASTER_HASH=`git rev-parse master`
+# Don't use master, circleCI does some weird stuff and moves it ahead of actual master
+MASTER_HASH=`git rev-parse origin/master`
 HEAD_HASH=`git rev-parse HEAD`
 
 if [ "$MASTER_HASH" == "$HEAD_HASH" ]; then
   # Assume HEAD^1
   LAST_MERGE_COMMIT=HEAD^1
 else
-  # Assume master for now
-  LAST_MERGE_COMMIT=master
+  # Assume origin/master for now
+  LAST_MERGE_COMMIT=origin/master
 fi
 
 echo "Comparing changes against: $LAST_MERGE_COMMIT"
