@@ -9,8 +9,4 @@ then
   LAST_MERGE_COMMIT=HEAD^1
 fi
 
-git diff $LAST_MERGE_COMMIT..HEAD
-
-env
-
-git log --oneline $COMMIT_RANGE -- $DIRECTORY_TO_BUILD
+git log --oneline $LAST_MERGE_COMMIT..HEAD -- $DIRECTORY_TO_BUILD
