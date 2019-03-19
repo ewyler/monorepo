@@ -2,9 +2,14 @@ set -o xtrace
 
 DIRECTORY_TO_BUILD=$1
 
-git diff $(git log --merges --pretty=format:’%h’ -n1 HEAD~1)…HEAD
+LAST_MERGE_COMMIT=$(git log --merges --pretty=format:’%h’ -n1 HEAD~1)
 
-echo $DIRECTORY_TO_BUILD
+if [ -z $LAST_MERGE_COMMIT ];
+then
+  LAST_MERGE_COMMIT=HEAD^1
+fi
+
+git diff $LAST_MERGE_COMMIT..HEAD
 
 env
 
