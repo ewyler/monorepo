@@ -24,6 +24,8 @@ COMMITS_IN_DIR=`git log --oneline $LAST_MERGE_COMMIT..HEAD -- $DIRECTORY_TO_BUIL
 
 if [ "$COMMITS_IN_DIR" -gt "0" ]; then
   echo "Changes detected; building $DIRECTORY_TO_BUILD"
+  cd $DIRECTORY_TO_BUILD
+  yarn build
 else
   echo "No changes detected in $DIRECTORY_TO_BUILD; skipping build"
 fi

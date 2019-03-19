@@ -2,6 +2,12 @@
   "name": "workspace-a",
   "version": "1.3.1",
   "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn install && tsc --build",
+    "build:watch": "yarn install && tsc --build --watch",
+    "start": "yarn build && node dist/index.js",
+    "start:watch": "nodemon"
+  },
   "dependencies": {
     "left-pad": "^1.3.0"
   }
