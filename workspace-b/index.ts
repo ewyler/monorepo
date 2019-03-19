@@ -1,7 +1,7 @@
 import { aThing, Test } from 'workspace-a';
 
 const poop: Test = {
-  num: 'jklfd',
+  num: 'jkjlk',
 };
 
 console.log(poop);
