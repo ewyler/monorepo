@@ -3,7 +3,7 @@ DIRECTORY_TO_BUILD=$1
 MASTER_HASH=`git rev-parse master`
 HEAD_HASH=`git rev-parse HEAD`
 
-if [ "$MASTER_HASH" -eq "$HEAD_HASH" ]; then
+if [ "$MASTER_HASH" == "$HEAD_HASH" ]; then
   # Assume HEAD^1
   LAST_MERGE_COMMIT=HEAD^1
 else
