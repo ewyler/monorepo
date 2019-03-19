@@ -2,7 +2,7 @@ version: 2
 
 references:
   fast-checkout: &fast-checkout
-    attach_workspace:
+    - attach_workspace:
       at: /root
 
 jobs:
@@ -29,8 +29,8 @@ jobs:
   build:
     docker:
       - image: node:10-alpine
-    *fast-checkout
     steps:
+      - *fast-checkout
       - echo `ls .git`
 
 workflows:
