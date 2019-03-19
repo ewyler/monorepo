@@ -5,6 +5,7 @@
   "scripts": {
     "build": "yarn install && tsc --build",
     "build:watch": "yarn install && tsc --build --watch",
+    "test": "bash -c 'exit 5'",
     "start": "yarn build && node dist/index.js",
     "start:watch": "nodemon"
   },

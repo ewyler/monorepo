@@ -1,4 +1,5 @@
 set -o xtrace
+set -e
 
 DIRECTORY_TO_BUILD=$1
 
@@ -26,6 +27,7 @@ if [ "$COMMITS_IN_DIR" -gt "0" ]; then
   echo "Changes detected; building $DIRECTORY_TO_BUILD"
   cd $DIRECTORY_TO_BUILD
   yarn build
+  yarn test
 else
   echo "No changes detected in $DIRECTORY_TO_BUILD; skipping build"
 fi
