@@ -16,6 +16,7 @@ jobs:
             - repo-source-{{ .Branch }}-
             - repo-source-
       - checkout
+      - run: git gc # Built-in checkout disables garbage collection - https://circleci.com/docs/2.0/caching/
       - save_cache:
           key: repo-source-{{ .Branch }}-{{ .Revision }}
           paths:
