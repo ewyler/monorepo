@@ -2,10 +2,8 @@ set -o xtrace
 
 DIRECTORY_TO_BUILD=$1
 
-COMMIT_RANGE=$(echo $CIRCLE_COMPARE_URL | sed 's:^.*/compare/::g')
+git diff $(git log --merges --pretty=format:’%h’ -n1 HEAD~1)…HEAD
 
-echo $CIRCLE_COMPARE_URL
-echo $COMMIT_RANGE
 echo $DIRECTORY_TO_BUILD
 
 env
