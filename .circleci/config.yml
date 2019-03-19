@@ -1,0 +1,41 @@
+version: 2
+
+jobs:
+  persist-checkout-to-workspace:
+    docker:
+      - image: node:10-alpine
+    steps:
+      - restore_cache:
+          keys:
+            - repo-source-{{ .Branch }}-{{ .Revision }}
+            - repo-source-{{ .Branch }}-
+            - repo-source-
+      - checkout
+      - save_cache:
+          key: repo-source-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - '.git'
+
+      - persist_to_workspace:
+          root: /root
+          paths:
+            - monorepo
+
+  fast-checkout: &fast-checkout
+    attach_workspace:
+      at: /root
+
+  build:
+    docker:
+      - image: node:10-alpine
+    steps:
+      - *fast-checkout
+      - echo `ls .git`
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build:
+        requires:
+          - persist-checkout-to-workspace
