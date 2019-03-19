@@ -29,8 +29,8 @@ jobs:
   build:
     docker:
       - image: node:10-alpine
+    *fast-checkout
     steps:
-      - *fast-checkout
       - echo `ls .git`
 
 workflows:
