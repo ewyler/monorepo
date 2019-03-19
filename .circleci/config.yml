@@ -1,5 +1,10 @@
 version: 2
 
+references:
+  fast-checkout: &fast-checkout
+    attach_workspace:
+      at: /root
+
 jobs:
   persist_checkout:
     docker:
@@ -20,10 +25,6 @@ jobs:
           root: /root
           paths:
             - monorepo
-
-  fast-checkout: &fast-checkout
-    attach_workspace:
-      at: /root
 
   build:
     docker:
