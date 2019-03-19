@@ -1,8 +1,17 @@
 DIRECTORY_TO_BUILD=$1
 
-# Assume master for now
-LAST_MERGE_COMMIT=master
-echo "Last merge commit: $LAST_MERGE_COMMIT"
+MASTER_HASH=`git rev-parse master`
+HEAD_HASH=`git rev-parse HEAD`
+
+if [ "$MASTER_HASH" -eq "$HEAD_HASH" ]; then
+  # Assume HEAD^1
+  LAST_MERGE_COMMIT=HEAD^1
+else
+  # Assume master for now
+  LAST_MERGE_COMMIT=master
+fi
+
+echo "Comparing changes against: $LAST_MERGE_COMMIT"
 
 COMMITS_IN_DIR=`git log --oneline $LAST_MERGE_COMMIT..HEAD -- $DIRECTORY_TO_BUILD | wc -l`
 
