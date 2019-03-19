@@ -1,3 +1,5 @@
+set -o xtrace
+
 DIRECTORY_TO_BUILD=$1
 
 MASTER_HASH=`git rev-parse master`
