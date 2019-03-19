@@ -1,7 +1,12 @@
 version: 2
 
+references:
+  fast-checkout: &fast-checkout
+    attach_workspace:
+      at: /root
+
 jobs:
-  persisted_checkout:
+  persist_checkout:
     docker:
       - image: circleci/node:10
     steps:
@@ -16,17 +21,23 @@ jobs:
           paths:
             - '.git'
 
+      - persist_to_workspace:
+          root: /root
+          paths:
+            - project
+
   build:
     docker:
       - image: circleci/node:10
     steps:
-      - run: echo `ls .git`
+      - *fast-checkout
+      - echo `ls .git`
 
 workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - persisted_checkout
+      - persist_checkout
       - build:
           requires:
-            - persisted_checkout
+            - persist_checkout
