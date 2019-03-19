@@ -3,7 +3,7 @@ version: 2
 references:
   fast-checkout: &fast-checkout
     attach_workspace:
-      at: /root
+      at: project
 
 jobs:
   persist_checkout:
@@ -20,11 +20,11 @@ jobs:
           key: repo-source-{{ .Branch }}-{{ .Revision }}
           paths:
             - '.git'
-
+      - run: echo `ls`
       - persist_to_workspace:
-          root: /root
+          root: project
           paths:
-            - project
+            - '.'
 
   build:
     docker:
