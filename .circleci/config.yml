@@ -32,7 +32,7 @@ jobs:
       - image: circleci/node:10
     steps:
       - *fast_checkout
-      - run: `deploy/maybe-build.sh /workspace-a`
+      - run: deploy/maybe-build.sh /workspace-a
       - run: echo `pwd`
       - run: echo `ls .git`
 
