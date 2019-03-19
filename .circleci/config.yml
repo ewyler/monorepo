@@ -10,18 +10,17 @@ jobs:
     docker:
       - image: circleci/node:10
     steps:
-      # TODO this restore/save cache seems to screw up master - it ends up one commit ahead on branches
-      # - restore_cache:
-      #     keys:
-      #       - repo-source-{{ .Branch }}-{{ .Revision }}
-      #       - repo-source-{{ .Branch }}-
-      #       - repo-source-
+      - restore_cache:
+          keys:
+            - repo-source-{{ .Branch }}-{{ .Revision }}
+            - repo-source-{{ .Branch }}-
+            - repo-source-
       - checkout
-      # - run: git gc # Built-in checkout disables garbage collection - https://circleci.com/docs/2.0/caching/
-      # - save_cache:
-      #     key: repo-source-{{ .Branch }}-{{ .Revision }}
-      #     paths:
-      #       - '.git'
+      - run: git gc # Built-in checkout disables garbage collection - https://circleci.com/docs/2.0/caching/
+      - save_cache:
+          key: repo-source-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - '.git'
       - persist_to_workspace:
           root: '.'
           paths:
