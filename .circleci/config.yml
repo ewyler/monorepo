@@ -27,7 +27,7 @@ jobs:
           paths:
             - '.'
 
-  build_workspace_a:
+  workspace_a_build:
     docker:
       - image: circleci/node:10
     steps:
@@ -35,7 +35,7 @@ jobs:
       - run: env
       - run: deploy/maybe-build.sh workspace-a
 
-  build_workspace_b:
+  workspace_b_build:
     docker:
       - image: circleci/node:10
     steps:
@@ -43,7 +43,7 @@ jobs:
       - run: env
       - run: deploy/maybe-build.sh workspace-b
 
-  build_workspace_c:
+  workspace_c_build:
     docker:
       - image: circleci/node:10
     steps:
@@ -56,12 +56,12 @@ workflows:
   build_test_deploy:
     jobs:
       - persist_checkout
-      - build_workspace_a:
+      - workspace_a_build:
           requires:
             - persist_checkout
-      - build_workspace_b:
+      - workspace_b_build:
           requires:
             - persist_checkout
-      - build_workspace_c:
+      - workspace_c_build:
           requires:
             - persist_checkout
