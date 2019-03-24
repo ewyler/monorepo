@@ -6,6 +6,7 @@ DIRECTORY_TO_BUILD=$1
 # Will be needed if we allow merge commits rather than requiring squashes on head - but we can probably
 # just always require squashes for now
 # git diff $(git log --merges --pretty=format:’%h’ -n1 HEAD~1)..HEAD
+# Seems like CIRCLE_COMPARE_URL might actually be fixed in one of the latest builds I did?
 
 # Don't use master, circleCI does some weird stuff and moves it ahead of actual master
 MASTER_HASH=`git rev-parse origin/master`
